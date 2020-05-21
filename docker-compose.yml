@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  listener:
+    container_name: listener
+    build: ./listener
+    env_file:
+      - .docker/listener.env
+    links:
+      - rabbitmq
+    restart: always
+
   rabbitmq:
     container_name: rabbitmq
     image: 'bitnami/rabbitmq:3.8'
@@ -11,6 +20,18 @@ services:
       - '15672:15672'
     volumes:
       - 'rabbitmq_data:/bitnami'
+    networks:
+      rabbitmq_net:
+        ipv4_address: 172.28.0.3
+    restart: always
+
 volumes:
   rabbitmq_data:
     driver: local
+
+networks:
+  rabbitmq_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
