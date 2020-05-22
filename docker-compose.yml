@@ -10,6 +10,19 @@ services:
       - rabbitmq
     restart: always
 
+  rabbitmq:
+    container_name: micro-services-project_rabbitmq
+    image: 'bitnami/rabbitmq:3.8'
+    ports:
+      - '4369:4369'
+      - '25672:25672'
+      - '15672:15672'
+    expose:
+      - '5672'
+    volumes:
+      - 'rabbitmq_data:/bitnami'
+    restart: always
+
 #  api_mail:
 #    container_name: micro-services-project_api_mail
 #    build: ./apiMail
@@ -19,54 +32,30 @@ services:
 #      - rabbitmq
 #    restart: always
 
-  rabbitmq:
-    container_name: micro-services-project_rabbitmq
-    image: 'bitnami/rabbitmq:3.8'
-    ports:
-      - '4369:4369'
-      - '5672:5672'
-      - '25672:25672'
-      - '15672:15672'
-    volumes:
-      - 'rabbitmq_data:/bitnami'
-    networks:
-      rabbitmq_net:
-        ipv4_address: 172.28.0.3
-    restart: always
+#  mysql:
+#      build: ./database
+#      command: "--default-authentication-plugin=mysql_native_password"
+#      container_name: micro-services-project_mysql
+#      volumes:
+#          - ./database/volume:/var/lib/mysql
+#      env_file:
+#          - ./database/secrets.env
+#      expose:
+#          - 3306
+#      restart: always
 
-  mysql:
-      build: ./database
-      command: "--default-authentication-plugin=mysql_native_password"
-      container_name: micro-services-project_mysql
-      volumes:
-          - ./database/volume:/var/lib/mysql
-      env_file:
-          - ./database/secrets.env
-      expose:
-          - 3306
-      ports: 
-          - 3306:3306
-      restart: always
-
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin:latest
-      container_name: micro-services-project_phpmyadmin
-      environment:
-        PMA_HOST: mysql
-        PMA_PORT: 3306
-      ports:
-          - 8081:80
-      links:
-          - mysql
-      restart: always
+#  phpmyadmin:
+#      image: phpmyadmin/phpmyadmin:latest
+#      container_name: micro-services-project_phpmyadmin
+#      environment:
+#        PMA_HOST: mysql
+#        PMA_PORT: 3306
+#      ports:
+#          - 8081:80
+#      links:
+#          - mysql
+#      restart: always
 
 volumes:
   rabbitmq_data:
     driver: local
-
-networks:
-  rabbitmq_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.0.0/16
