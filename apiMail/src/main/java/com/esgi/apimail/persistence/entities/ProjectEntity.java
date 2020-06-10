@@ -1,9 +1,6 @@
 package com.esgi.apimail.persistence.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -12,7 +9,7 @@ public class ProjectEntity  {
     @Id
     private Long id;
 
-    @OneToMany
+    @ManyToMany
     private Collection<UserEntity> notifiedUserEntities;
 
     public ProjectEntity() {

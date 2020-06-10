@@ -2,6 +2,8 @@ package com.esgi.apimail.web.configs;
 
 import com.esgi.apimail.domain.listprojects.ListProjectService;
 import com.esgi.apimail.domain.listprojects.contracts.IListProjectRepository;
+import com.esgi.apimail.domain.listusers.ListUsersService;
+import com.esgi.apimail.domain.listusers.contracts.IListUsersRepository;
 import com.esgi.apimail.domain.newproject.NewProjectService;
 import com.esgi.apimail.domain.newproject.contracts.INewProjectRepository;
 import com.esgi.apimail.domain.sendmail.MailService;
@@ -25,5 +27,10 @@ public class BeanConfigs {
     @Bean
     public MailService mailService(IMailRepository mailRepository, IMailSender mailSender){
         return new MailService(mailRepository, mailSender);
+    }
+
+    @Bean
+    public ListUsersService listUsersService(IListUsersRepository repository){
+        return new ListUsersService(repository);
     }
 }

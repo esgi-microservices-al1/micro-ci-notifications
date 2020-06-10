@@ -10,8 +10,8 @@ public class NewProjectService {
         this.repository = repository;
     }
 
-    public boolean createProject(Project project){
+    public Project createProject(Project project){
         Project p = repository.save(project);
-        return true;
+        return p;
     }
 }
