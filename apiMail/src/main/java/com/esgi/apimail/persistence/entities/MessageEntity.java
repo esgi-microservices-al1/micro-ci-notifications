@@ -1,22 +1,35 @@
-package com.esgi.apimail.domain.models;
+package com.esgi.apimail.persistence.entities;
 
-public class Message  extends ModelBase{
+import javax.persistence.*;
+
+@Entity
+@Table(name="messages")
+public class MessageEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String content;
+
     private String subject;
+
     private Long projectId;
 
-    public Message() {
-        this(null, null);
+    public MessageEntity() {
     }
 
-    public Message(String content, String subject) {
-        this(null, content, subject);
-    }
-
-    public Message(Long id, String content, String subject) {
-        super(id);
+    public MessageEntity(String content, String subject, Long projectId) {
         this.content = content;
         this.subject = subject;
+        this.projectId = projectId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getContent() {

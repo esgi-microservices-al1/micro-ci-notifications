@@ -2,6 +2,8 @@ package com.esgi.apimail.domain.sendmail.contracts;
 
 import com.esgi.apimail.domain.models.Message;
 
+import java.util.Collection;
+
 public interface IMailSender {
-    void sendMail(Message message);
+    boolean sendMail(Message message, Collection<String> emailAddresses);
 }

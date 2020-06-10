@@ -36,8 +36,6 @@ public class ProjectRepository implements INewProjectRepository, IListProjectRep
             if (e == null) {
                 e = UserParser.parse(u);
                 e = userDAL.save(e);
-            } else {
-                e.setEmailAddress(u.getEmailAddress());
             }
             entities.add(e);
         }
