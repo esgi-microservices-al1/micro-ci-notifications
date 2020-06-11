@@ -25,7 +25,7 @@ services:
     restart: always
 
   api_mail:
-    container_name: micro-services-project_api_mail
+    container_name: micro-services-project-api
     build: ./apiMail
     env_file:
       - .docker/api_mail.env
