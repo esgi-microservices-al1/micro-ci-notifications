@@ -2,7 +2,8 @@ package com.esgi.apimail.domain.models;
 
 import java.util.Collection;
 
-public class Project extends ModelBase{
+public class Project{
+    private String id;
 
     Collection<NotifiedUser> notifiedUsers;
 
@@ -10,12 +11,12 @@ public class Project extends ModelBase{
         this(null);
     }
 
-    public Project(Long id) {
+    public Project(String id) {
         this(id, null);
     }
 
-    public Project(Long id, Collection<NotifiedUser> notifiedUsers) {
-        super(id);
+    public Project(String id, Collection<NotifiedUser> notifiedUsers) {
+        this.id = id;
         this.notifiedUsers = notifiedUsers;
     }
 
@@ -25,5 +26,13 @@ public class Project extends ModelBase{
 
     public void setNotifiedUsers(Collection<NotifiedUser> notifiedUsers) {
         this.notifiedUsers = notifiedUsers;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

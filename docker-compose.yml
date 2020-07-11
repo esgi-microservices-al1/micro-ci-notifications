@@ -38,7 +38,7 @@ services:
     restart: always
 
   mysql:
-      build: ./database
+      image: mysql:latest
       command: "--default-authentication-plugin=mysql_native_password"
       container_name: micro-services-project_mysql
       volumes:

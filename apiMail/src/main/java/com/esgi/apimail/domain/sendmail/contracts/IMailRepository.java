@@ -8,5 +8,5 @@ import java.util.Collection;
 public interface IMailRepository {
     Message save(Message message);
 
-    Collection<NotifiedUser> getNotifiedUsersByProjectId(Long projectId);
+    Collection<NotifiedUser> getNotifiedUsersByProjectId(String projectId);
 }

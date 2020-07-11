@@ -34,7 +34,7 @@ public class MailRepository implements IMailRepository {
     }
 
     @Override
-    public Collection<NotifiedUser> getNotifiedUsersByProjectId(Long projectId) {
+    public Collection<NotifiedUser> getNotifiedUsersByProjectId(String projectId) {
         Optional<ProjectEntity> entity = projectDAL.findById(projectId);
         if(entity.isEmpty() || entity.get().getNotifiedUserEntities() == null)
             return null;

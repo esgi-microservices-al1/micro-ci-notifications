@@ -13,12 +13,12 @@ public class MessageEntity {
 
     private String subject;
 
-    private Long projectId;
+    private String projectId;
 
     public MessageEntity() {
     }
 
-    public MessageEntity(String content, String subject, Long projectId) {
+    public MessageEntity(String content, String subject, String projectId) {
         this.content = content;
         this.subject = subject;
         this.projectId = projectId;
@@ -48,11 +48,11 @@ public class MessageEntity {
         this.subject = subject;
     }
 
-    public Long getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Long projectId) {
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
     }
 }

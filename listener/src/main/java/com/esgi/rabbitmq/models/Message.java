@@ -3,12 +3,12 @@ package com.esgi.rabbitmq.models;
 public class Message {
     private String content;
     private String subject;
-    private Long projectId;
+    private String projectId;
 
     public Message() {
     }
 
-    public Message(String content, String subject, Long projectId) {
+    public Message(String content, String subject, String projectId) {
         this.content = content;
         this.subject = subject;
         this.projectId = projectId;
@@ -30,11 +30,11 @@ public class Message {
         this.subject = subject;
     }
 
-    public Long getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Long projectId) {
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
     }
 }

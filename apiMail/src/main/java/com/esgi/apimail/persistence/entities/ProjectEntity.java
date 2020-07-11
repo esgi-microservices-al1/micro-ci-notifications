@@ -7,7 +7,7 @@ import java.util.Collection;
 @Table(name="projects")
 public class ProjectEntity  {
     @Id
-    private Long id;
+    private String id;
 
     @ManyToMany
     private Collection<UserEntity> notifiedUserEntities;
@@ -15,11 +15,11 @@ public class ProjectEntity  {
     public ProjectEntity() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
