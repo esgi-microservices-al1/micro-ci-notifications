@@ -2,10 +2,10 @@ FROM maven:3.6.3-jdk-11
 
 WORKDIR /usr/app/tmp
 
-COPY mvnw ./
-COPY mvnw.cmd ./
-COPY pom.xml ./
-COPY src/ ./src/
+COPY apiMail/mvnw ./
+COPY apiMail/mvnw.cmd ./
+COPY apiMail/pom.xml ./
+COPY apiMail/src/ ./src/
 
 RUN mvn package \
 && cp ./target/app.jar /usr/app/
