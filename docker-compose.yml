@@ -28,9 +28,9 @@ services:
       command: "--default-authentication-plugin=mysql_native_password"
       container_name: al1-notifications-mysql
       volumes:
-          - ./database/volume:/var/lib/mysql
+          - .docker/volume:/var/lib/mysql
       env_file:
-          - ./database/secrets.env
+          - .docker/mysql.env
       expose:
           - 3306
       restart: always
