@@ -16,9 +16,9 @@ services:
     env_file:
       - .docker/api_mail.env
     ports:
-      - '80:80'
+      - '8080:8080'
     expose:
-      - '80'
+      - '8080'
     links:
       - mysql
     restart: always
